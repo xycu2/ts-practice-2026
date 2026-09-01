@@ -14,3 +14,18 @@ function sayHello(a: string, b: number, c: boolean):string {
 const sayWork = (a: string, b: number, c: boolean): string => {
   return 'working'
 };
+
+// Object
+
+// "?" говорит ts, что это поле не обязательно , оно может быть, а может и нет
+type User = {name: string; age: number; car?: {color : string}};
+// type и interface выполняет одно и тоже
+interface User2 {name: string; age: number; car: {color : string}};
+
+const userInfo: User = {
+  name: 'alex',
+  age: 22,
+  car: {
+    color: 'red'
+  }
+};

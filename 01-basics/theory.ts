@@ -29,3 +29,7 @@ const userInfo: User = {
     color: 'red'
   }
 };
+
+// Arrays
+const arr1: string[] = ['123', '1234434', '234234'];
+const arr2: Array<string> = ['123', '1234434', '234234'];

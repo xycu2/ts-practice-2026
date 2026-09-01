@@ -5,3 +5,12 @@ const coding: undefined = undefined; // undefined используем с undefi
 const github: null = null; // null используем с null
 
 const cooking: any = 1; // any любой тип, лучше не использовать
+
+// functions
+function sayHello(a: string, b: number, c: boolean):string {
+  return 'hello'
+};
+
+const sayWork = (a: string, b: number, c: boolean): string => {
+  return 'working'
+};

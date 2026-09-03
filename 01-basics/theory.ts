@@ -64,3 +64,6 @@ function o18(status: 'ok' | 'error') {
 // @ts-ignore
 const o18result: boolean = o18('ok'); // не можем положить в переменную boolean null "@ts-ignore" исправит эту проблему
 
+// 2 вариант
+// использовать "any" , лучше не использовать!
+const o18result2: any = o18('ok')

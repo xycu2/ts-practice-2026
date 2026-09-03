@@ -66,4 +66,11 @@ const o18result: boolean = o18('ok'); // не можем положить в п�
 
 // 2 вариант
 // использовать "any" , лучше не использовать!
-const o18result2: any = o18('ok')
+const o18result2: any = o18('ok');
+
+// 3 вариант 
+// type guard
+
+// 4 вариант 
+// Костование типов через "as"
+const o18result4 = o18('ok') as unknown as boolean;

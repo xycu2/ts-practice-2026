@@ -45,3 +45,22 @@ const arr2: Array<string> = ['123', '1234434', '234234'];
 
 // "И" в interface можем записать так:
 // interface allObj extends obj1, obj2, obj3 {}
+
+
+function o18(status: 'ok' | 'error') {
+  if (status === 'ok') {
+
+  }
+  else if (status === 'error') {
+
+  }
+
+  return null
+}
+
+// Как заткнуть ts , чтобы он не ругался на ошибку
+
+// 1 вариант
+// @ts-ignore
+const o18result: boolean = o18('ok'); // не можем положить в переменную boolean null "@ts-ignore" исправит эту проблему
+

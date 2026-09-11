@@ -1,9 +1,14 @@
+type Settings = {
+  url: string,
+  method: 'POST' | 'GET'
+}
+
 // Нужно реализовать перегрузку
 function axios(url: string): string;
-function axios(url: string, sett: { method: string }): number;
-function axios(sett: { url: string; method: string }): string;
+function axios(url: string, sett: Omit<Settings, 'url'>): number;
+function axios(sett: Settings): string;
 
-function axios(urlOrSett: string | {url: string, method: string}, sett?: {method: string}): string | number {
+function axios(urlOrSett: string | Settings, sett?: Omit<Settings, 'url'>): string | number {
   if (typeof urlOrSett === 'string') {
     if (sett) {
       return 200; // Case 2: url + sett => number

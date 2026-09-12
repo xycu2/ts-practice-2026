@@ -20,3 +20,15 @@ const wrapInArray2 = <T, >(value: T): T[] => {
 }
 
 
+// классы
+class User5<T> {
+  // дженерики в классе мы можем использовать где угодно
+  // T используется для типа свойства value и возвращаемого значения метода
+  constructor(public value: T) {};
+
+  getValue(): T {
+    return this.value;
+  }
+}
+const numBox = new User5<number>(10); // T становится number
+const strBox = new User5<string>('Vue'); // T становится string

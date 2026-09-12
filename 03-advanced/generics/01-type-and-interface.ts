@@ -16,5 +16,16 @@ type alex3 = User // name: '', age: 0
 type alex = User<'alex', 20>
 type bob = User<'bob', 25>
 
+interface getUser<Name = string, Age = number> {
+  name: Name,
+  age: Age,
+  balance: number,
+  currency: 'RUB' | 'USD',
+  lang: 'English' | 'Rus',
+}
+
+type bob2 = getUser<'bob'> // Age: number
+type bob3 = getUser // Name: string, Age: number
+
 
 export {}

@@ -16,11 +16,14 @@ function updateValue<
 
   // 3. Val — тип значение привязан к конкретному ключу (Indexed Access Type).
   // Значение должно строго соответствовать типу свойства Obj[Key]
-  Val extends Obj[Key]
+  Val extends Obj[Key],
+  // Любой тип из объекта alex
+  DefVal extends Obj[keyof Obj]
 >(
   obj: Obj,   // Сам объект
   key: Key,   // Разрешенный ключ (любое поле, кроме 'id')
-  value: Val  // Значение, подходящее по типу к выбранному ключу
+  value: Val,  // Значение, подходящее по типу к выбранному ключу
+  defaultVal: DefVal // Значение, имеет любой тип, который есть в объекте alex
 ) {
   // Реализация функции (например: obj[key] = value)
 }
@@ -29,7 +32,7 @@ function updateValue<
 // 1. Obj = typeof alex
 // 2. Key = 'age' (допустимо, так как это не 'id')
 // 3. Val = number (так как alex['age'] имеет тип number)
-updateValue(alex, 'age', 30) // Все типы совпали — ошибок нет
+updateValue(alex, 'age', 30, true) // Все типы совпали — ошибок нет
 
 // Примеры ошибок, которые отловит TypeScript:
 // updateValue(alex, 'id', 10)       // Ошибка: 'id' исключен через Exclude

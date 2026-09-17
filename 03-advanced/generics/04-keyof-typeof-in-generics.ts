@@ -38,3 +38,13 @@ updateValue(alex, 'age', 22, 1) // Все типы совпали — ошибо
 // updateValue(alex, 'id', 10)       // Ошибка: 'id' исключен через Exclude
 // updateValue(alex, 'age', '30')    // Ошибка: '30' это string, а должно быть number (Obj['age'])
 // updateValue(alex, 'job', 'dev')   // Ошибка: ключа 'job' нет в объекте
+
+
+type Test = {
+  name: string,
+  age: number
+}
+
+// keyof Test === 'name' | 'age'
+
+type Test2 = Test[keyof Test]

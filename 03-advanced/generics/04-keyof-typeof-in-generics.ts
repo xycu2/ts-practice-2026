@@ -18,7 +18,7 @@ function updateValue<
   // Значение должно строго соответствовать типу свойства Obj[Key]
   Val extends Obj[Key],
   // Любой тип из объекта alex
-  DefVal extends Obj[keyof Obj]
+  DefVal extends Obj[Exclude<keyof Obj, 'id'>]
 >(
   obj: Obj,   // Сам объект
   key: Key,   // Разрешенный ключ (любое поле, кроме 'id')
@@ -32,7 +32,7 @@ function updateValue<
 // 1. Obj = typeof alex
 // 2. Key = 'age' (допустимо, так как это не 'id')
 // 3. Val = number (так как alex['age'] имеет тип number)
-updateValue(alex, 'age', 30, true) // Все типы совпали — ошибок нет
+updateValue(alex, 'age', 22, 1) // Все типы совпали — ошибок нет
 
 // Примеры ошибок, которые отловит TypeScript:
 // updateValue(alex, 'id', 10)       // Ошибка: 'id' исключен через Exclude

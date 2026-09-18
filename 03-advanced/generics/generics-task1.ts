@@ -1,27 +1,19 @@
-// generics в type и interface
-// дженерики похожи на функции, только они пишутся в < > скобках
-// Name и Age здесь это как парамаетры функции
-type User<Name = '', Age = 0> = {
-  name: Name,
-  age: Age,
-  balance: number,
-  currency: 'RUB' | 'USD',
-  lang: 'English' | 'Rus',
-}
-type alex2 = User<'alex'> // age: 0
-type alex3 = User // name: '', age: 0
+function customService<const T extends string>(keys: T[]) { // T === 'userId' | 'videoId'
+  function save<D>(key: T, data: D) {
+    // const transformed = transformData(data)
 
-// Мы вызывавем дженерики вот так , и передаем в скобках аргументы, как в функциях
-type alex = User<'alex', 20>
-type bob = User<'bob', 25>
+    //service.save(key, JSON.stringify(transformed))
+  }
 
-interface getUser<Name = string, Age = number> {
-  name: Name,
-  age: Age,
-  balance: number,
-  currency: 'RUB' | 'USD',
-  lang: 'English' | 'Rus',
+  function getData(key: T) {
+    // logic...
+    // return service.get(key)
+  }
+
+  return { save, getData }
 }
 
-type bob2 = getUser<'bob'> // Age: number
-type bob3 = getUser // Name: string, Age: number
+
+const serviceUtils = customService(['userId', 'videoId']);
+serviceUtils.save('userId', {})
+serviceUtils.getData('videoId')

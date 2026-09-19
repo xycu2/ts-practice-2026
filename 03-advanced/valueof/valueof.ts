@@ -18,3 +18,16 @@ type ValueOf<T extends Record<string, unknown>> = T[keyof T];
 // 3. Пример использования с типом User
 // В Test попадает объединение типов значений: string | number
 type Test = ValueOf<User>;
+
+
+// 4. Работа с конкретным JS-объектом
+const alex = {
+  name: 'alex',
+  age: 22,
+};
+
+// typeof alex — превращает JS-объект в TS-тип: { name: string, age: number }
+// ValueOf<typeof alex> — извлекает типы значений этого объекта (string | number)
+type AlexType = ValueOf<typeof alex>;
+
+export {};

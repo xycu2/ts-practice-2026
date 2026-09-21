@@ -7,3 +7,5 @@ type User = {
 // 2. User['name' | 'age'] -> достаёт типы значений по этим ключам: string | number
 // Итог: в Test1 попадает объединённый тип string | number
 type Test1 = User[keyof User]
+
+export {}

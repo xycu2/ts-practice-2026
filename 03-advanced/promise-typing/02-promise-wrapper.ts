@@ -21,5 +21,5 @@ const proms = new Promise<string>((resolve, reject) => {
 })
 
 // 3. Вызов обёртки: TypeScript сам выводит (infer), что T === string
-promiseWrapper(Promise.resolve('dsfdfgs'))
+promiseWrapper(proms)
 

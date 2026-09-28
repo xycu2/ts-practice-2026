@@ -26,3 +26,5 @@ type Nullish = null | undefined
 type SecondComponentType = {
   userName: Exclude<FullData['userName'], Nullish> // исключаем из "FullData['userName']" "null | undefined"
 }
+
+type T1 = Extract<"a" | "b" | "c", "a"> // "a" // извлекаем "a" из ' "a" | "b" | "c" '

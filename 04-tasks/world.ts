@@ -1,14 +1,11 @@
-enum TestEnum  {
-  name = 'world'
+function testOk(status: 'ok' | 'error') {
+  if (status === 'ok') {
+    return 200
+  }
+
+  if (status === 'error') {
+    return 400
+  }
+
+  assertExhaustiveness(status)
 }
-
-console.log('enum', TestEnum.name)
-
-function sum(a: number, b: number) {
-  return a + b
-}
-
-
-const result = sum(10, 5)
-
-console.log('result from TS', result)

@@ -5,3 +5,9 @@ declare module '*.scss' {
   export default content;
 }
 
+// imgs
+declare module '*.svg' {
+  const content: string;
+  
+  export default content;
+}

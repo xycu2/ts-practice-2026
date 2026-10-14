@@ -21,3 +21,9 @@ const videoInstance = new Video('Котятки', 5)
 
 videoInstance.name // Все хорош
 // videoInstance.length // Ошибка: приватное свойство
+
+
+// Модификаторы: public, private, protected
+
+// public - по умолчанию, разрешает использовать св-ва и методы класса
+// private запрещает использовать св-ва и методы класса
